@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="event.preventDefault()">
+        <p>Is Customer Going from SIM to Handset or vice versa</p>
+        <input type="radio" id="sim_yes" name="sim_handset" value="sim_yes">
+        <lable for="sim_yes">Yes</lable><br>
+        <input type="radio" id="sim_no" name="sim_handset" value="sim_no">
+        <lable for="sim_no">No</lable><br>
+        <hr>
+        <p>Is Customer In contract ?</p>
+        <input type="radio" id="contract_yes" name="contract" value="contract_yes">
+        <lable for="contract_yes">Yes customer is in contract</lable><br>
+        <input type="radio" id="contract_no" name="contract" value="contract_no">
+        <lable for="contract_no">No, customer is not in contract</lable><br>
+        <hr>
+        <p>Is customer going to same contract ?</p>
+        <input type="radio" id="same_contract_yes" name="same_contract" value="same_contract_yes">
+        <lable for="contract_yes">Yes customer is going to same contract</lable><br>
+        <input type="radio" id="same_contract_no" name="same_contract" value="same_contract_no">
+        <lable for="contract_no">No, customer is not going to same contract</lable><br>
+        <p id="result">Result Will Come Here</p>
+        <button onclick="isSIM()">Check</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    SIM Unlimited Data Unlimited Minutes and Text 12 months contract is differnt contract from <br>
+    SIM Unlimited Data Unlimited Minutes and Text 24 month contract <br>
+    SIM Unlimited Data Unlimited Minutes and Text 1 month contract <br>
+
+    <script>
+        var sim_handset_1 = document.getElementById("sim_yes");
+        var sim_handset_2 = document.getElementById("sim_no");
+        var in_contract_1 = document.getElementById("contract_yes");
+        var in_contract_2 = document.getElementById("contract_no");
+        var is_same_contract_1 = document.getElementById("same_contract_yes");
+        var is_same_contract_2 = document.getElementById("same_contract_no");
+        sim_handset_1.addEventListener("click", function() {
+            is_same_contract_1.disabled = true;
+            is_same_contract_2.disabled = true;
+            is_same_contract_1.checked = false;
+            is_same_contract_2.checked = false;
+
+        })
+        sim_handset_2.addEventListener("click", function() {
+            is_same_contract_1.disabled = false;
+            is_same_contract_2.disabled = false;
+        })
+
+        function isSIM() {
+            if ((sim_handset_1.checked && in_contract_1.checked) || (sim_handset_2.checked && in_contract_1.checked && is_same_contract_2)) {
+
+                //                check if customer is in contract
+
+                {
+                    document.getElementById("result").innerHTML = "Contract will start from Next Bill Cycle and Package Will start From Next Bill Cycle";
+                }
+            }
+            else {
+                document.getElementById("result").innerHTML = "Contract will start from Today and Package Will start From Next Bill Cycle";
+            }
+
+        };
+    </script>
+</body>
+
+</html>
