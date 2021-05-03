@@ -4,6 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        body {
+            font-size: 25px;
+            font-weight: 600;
+            color: #1f8ac0;
+            background: #efc9af;
+        }
+
+        p {
+            
+            font-family: Helvetica;
+            font-size: 20px;
+        }
+        b{
+            font-weight: bold;
+            font-size: 35px;
+        }
+    </style>
 </head>
 
 <body>
@@ -56,20 +74,17 @@
         })
 
         function isSIM() {
-            if ((sim_handset_1.checked && in_contract_1.checked) || (sim_handset_2.checked && in_contract_1.checked && is_same_contract_2)) {
+            if ((sim_handset_1.checked && in_contract_1.checked) || (sim_handset_2.checked && in_contract_1.checked && is_same_contract_2.checked)) {
 
                 //                check if customer is in contract
 
                 {
                     document.getElementById("result").innerHTML = "Contract will start from Next Bill Cycle and Package Will start From Next Bill Cycle";
                 }
-            }
-            else {
+            } else {
                 document.getElementById("result").innerHTML = "Contract will start from Today and Package Will start From Next Bill Cycle";
             }
 
         };
     </script>
-</body>
-
-</html>
+</body></html>
